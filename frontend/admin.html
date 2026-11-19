@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Admin - VComp</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="admin-page">
+    <header>
+      <div>
+        <h1>Admin VComp</h1>
+        <p>Vape Companion - Pengelolaan data lokasi</p>
+      </div>
+      <div class="header-actions">
+        <a class="admin-link" href="/">← Kembali ke Peta</a>
+      </div>
+    </header>
+    <main class="admin-main">
+      <section id="loginBox" class="card admin-login">
+        <h2>Login Admin</h2>
+        <p class="muted">
+          Halaman peta dapat diakses tanpa login. Login hanya diperlukan untuk
+          mengelola data.
+        </p>
+        <input id="username" value="admin" placeholder="Username" />
+        <input
+          id="password"
+          type="password"
+          value="admin123"
+          placeholder="Password"
+        />
+        <button id="loginBtn">Login</button>
+        <p id="loginMsg"></p>
+      </section>
+
+      <section id="dashboard" hidden>
+        <div class="admin-toolbar">
+          <div>
+            <h2>Dashboard Data Lokasi</h2>
+            <p class="muted">Tambah, edit, atau hapus data lokasi.</p>
+          </div>
+          <button id="logoutBtn">Logout</button>
+        </div>
+
+        <div class="card">
+          <h3 id="formTitle">Tambah Lokasi</h3>
+          <form id="storeForm" class="form-grid">
+            <input type="hidden" id="storeId" />
+            <label>Nama lokasi<input id="name" required /></label>
+            <label>Alamat<input id="address" /></label>
+            <label
+              >Latitude<input id="latitude" type="number" step="any" required
+            /></label>
+            <label
+              >Longitude<input id="longitude" type="number" step="any" required
+            /></label>
+            <label
+              >Jam operasional<input id="hours" value="Belum tersedia"
+            /></label>
+            <label
+              >Informasi atribut<input id="products" value="Belum tersedia"
+            /></label>
+            <label
+              >Wilayah
+              <select id="district">
+                <option value="">Pilih wilayah</option>
+                <option value="Palu Barat">Palu Barat</option>
+                <option value="Palu Selatan">Palu Selatan</option>
+                <option value="Palu Timur">Palu Timur</option>
+                <option value="Palu Utara">Palu Utara</option>
+                <option value="Mantikulore">Mantikulore</option>
+                <option value="Tatanga">Tatanga</option>
+                <option value="Tawaeli">Tawaeli</option>
+                <option value="Ulujadi">Ulujadi</option>
+              </select>
+            </label>
+            <label>URL foto<input id="photo_url" /></label>
+            <div class="form-actions">
+              <button type="submit">Simpan</button>
+              <button type="button" id="cancelEdit" class="secondary" hidden>
+                Batal Edit
+              </button>
+            </div>
+          </form>
+          <p id="formMsg"></p>
+        </div>
+
+        <div class="card table-wrap">
+          <div class="table-head">
+            <h3>Data Lokasi</h3>
+            <span id="total"></span>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nama</th>
+                <th>Alamat</th>
+                <th>Koordinat</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <script src="admin.js"></script>
+  </body>
+</html>

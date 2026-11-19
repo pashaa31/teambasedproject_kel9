@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>VComp - Peta GPS</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="/" aria-label="VComp - Vape Companion"
+        ><span class="brand-mark">V</span
+        ><span><b>VCOMP</b><small>VAPE COMPANION</small></span></a
+      >
+      <div class="header-copy">
+        <h1>PETA GPS</h1>
+        <p>Temukan lokasi vape store di Kota Palu.</p>
+      </div>
+      <nav class="header-actions">
+        <a class="admin-link" href="/">Dashboard</a
+        ><a class="admin-link active-nav" href="/map">Peta GPS</a
+        ><a class="admin-link" href="/care">Perawatan</a
+        ><button id="gps">Lokasi Saya</button
+        ><a class="admin-link" href="/admin">Admin</a>
+      </nav>
+    </header>
+    <main class="map-main">
+      <aside>
+        <div class="card">
+          <span class="eyebrow">TEMUKAN TOKO</span>
+          <h2>Explore Palu</h2>
+          <input id="search" placeholder="Cari nama/alamat..." /><select
+            id="district"
+          >
+            <option value="">Semua wilayah</option>
+            <option value="Palu Barat">Palu Barat</option>
+            <option value="Palu Selatan">Palu Selatan</option>
+            <option value="Palu Timur">Palu Timur</option>
+            <option value="Palu Utara">Palu Utara</option>
+            <option value="Mantikulore">Mantikulore</option>
+            <option value="Tatanga">Tatanga</option>
+            <option value="Tawaeli">Tawaeli</option>
+            <option value="Ulujadi">Ulujadi</option>
+          </select>
+          <div class="stats"><b id="count">0</b><span>titik lokasi</span></div>
+          <p id="loadStatus" class="muted">Memuat data...</p>
+        </div>
+        <div class="list-heading"><span>REKOMENDASI</span><b>LOKASI</b></div>
+        <div id="list"></div>
+        <div class="card">
+          <span class="eyebrow">NAVIGASI</span>
+          <h3>Rute</h3>
+          <p id="routeInfo">
+            Klik "Rute dari sini" pada marker setelah mengaktifkan Lokasi Saya.
+          </p>
+        </div>
+      </aside>
+      <section id="map"></section>
+    </main>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
